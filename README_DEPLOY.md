@@ -2,7 +2,7 @@
 
 One compose stack runs both services. They share a `data` volume
 (SQLite lives there), and the bot pushes live events to the website
-over the internal `http://web:8000` address.
+over the internal `http://web:3000` address.
 
 ## Coolify setup (VPS)
 
@@ -24,7 +24,7 @@ over the internal `http://web:8000` address.
 
    Generate secrets, e.g. `python -c "import secrets; print(secrets.token_hex(32))"`.
 
-5. Attach a domain to the **web** service, port **8000**. Coolify gives HTTPS.
+5. Attach a domain to the **web** service, port **3000**. Coolify gives HTTPS.
 6. Deploy. Both `bot` and `web` start together.
 
 Open `https://your-domain/` → login → live dashboard.
@@ -38,12 +38,12 @@ cp .env.example .env
 docker compose up --build
 ```
 
-- Website: http://127.0.0.1:8000
+- Website: http://127.0.0.1:3000
 - Bot polls Telegram from the `bot` container.
 
 ## Notes
 
 - First deploy starts a fresh database inside the `data` volume.
   To migrate history, copy `hire_bot.db` into the volume once.
-- `ADMIN_WEB_URL` is set by compose already (`http://web:8000`).
+- `ADMIN_WEB_URL` is set by compose already (`http://web:3000`).
   Only override it for non-docker local runs.
