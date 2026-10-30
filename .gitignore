@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Environment and secrets
+.env
+*.env
+
+# SQLite databases & temp files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+bot.log
+
+# Temporary and generated
+receipts/
+*.zip
+*.tar.gz
+
+# IDE & Editor files
+.claude/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
