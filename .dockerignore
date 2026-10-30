@@ -1,0 +1,11 @@
+.env
+*.db
+*.db-shm
+*.db-wal
+__pycache__/
+*.pyc
+bot.log
+receipts/
+.claude/
+.git/
+hire_bot.zip
