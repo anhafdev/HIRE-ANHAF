@@ -4,22 +4,6 @@ services:
   bot:
     build:
       context: .
-      dockerfile: Dockerfile.bot
-    restart: unless-stopped
-    env_file:
-      - path: .env
-        required: false
-    environment:
-      HIRE_DB_PATH: /data/hire_bot.db
-      CV_STORAGE_URL: sqlite:////data/cryptoverify_store.db
-      CV_RECEIPT_DIR: /data/receipts
-      ADMIN_WEB_URL: http://web:3000
-    volumes:
-      - data:/data
-
-  web:
-    build:
-      context: .
       dockerfile: Dockerfile.web
     restart: unless-stopped
     expose:
@@ -31,6 +15,22 @@ services:
         required: false
     environment:
       HIRE_DB_PATH: /data/hire_bot.db
+    volumes:
+      - data:/data
+
+  telegram:
+    build:
+      context: .
+      dockerfile: Dockerfile.bot
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      HIRE_DB_PATH: /data/hire_bot.db
+      CV_STORAGE_URL: sqlite:////data/cryptoverify_store.db
+      CV_RECEIPT_DIR: /data/receipts
+      ADMIN_WEB_URL: http://bot:3000
     volumes:
       - data:/data
 

@@ -45,5 +45,5 @@ docker compose up --build
 
 - First deploy starts a fresh database inside the `data` volume.
   To migrate history, copy `hire_bot.db` into the volume once.
-- `ADMIN_WEB_URL` is set by compose already (`http://web:3000`).
+- `ADMIN_WEB_URL` is set by compose already (`http://bot:3000`).
   Only override it for non-docker local runs.
